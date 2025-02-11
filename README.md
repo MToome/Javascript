@@ -25,6 +25,15 @@ console.error("See on errori teade")
 
 Ekraanile hoiatuse kuvamine
 ```Javascript
-console.warn("See on hoiatud");
+console.warn("See on hoiatus");
 ```
 
+Kuvad info teada, võimalik kujundada selle välimust
+```Javascript
+console.info("%c see on muudetud kujundusega info kiri", "color:green; font-size: 15px; font-weight:bold:")
+```
+
+Struktureeritud tabli formaadis andmete esitamiseks. Võtab sisestatud andmete omadused või elemendid ja paneb need ridadesse ja tulpadesse.
+```Javascript
+console.table([{nimi: "Tom", vanus: 25, sugu: "M"}, {nimi: "Mari", vanus: 27, sugu: "N"}])
+```
