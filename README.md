@@ -1,6 +1,19 @@
 # Javascript
 
 **Soovitav kasutada ', aga " sellel on väga väikesed vahed**
+```Javascript
+let nimi = 'Mati';
+let vastus1= ' Tere tulemast koju "Madis"';
+let vastus2 = " He is called 'John'";
+
+let boo = 'hi';
+// Kasutaded kald juttumärke saab teha keerulisemaid asju
+let template = ` Hello
+ world
+ ${vastus1}
+ ${vastus2}
+ !!!`;
+```
 
 Muutujate puhul kasutada let mitte var(var on vana, let uus)
 ``` Javascript
