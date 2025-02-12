@@ -89,3 +89,66 @@ function c(){
 }
 a();
 ```
+
+**Array**
+```Javascript
+const listing = ["Esimene", "Teine", "Kolmas"];
+```
+
+**Objects**
+```Javascript
+const inimene = {eesnimi: "Tom", perekonnanimi:"Tiik", vanus:25};
+```
+
+**Muutuja tüübi saamiseks**
+```Javascript
+typeof "Lukk"  // string
+typeof 0       // number
+typeof 2.15    // number
+```
+
+**Funktsioonid**
+**Klassikaline**
+```Javascript
+function hello(name){
+    return "Hello" + name;
+}
+
+let greeting = hello("Kevin");
+console.log(greeting)
+```
+
+**Muutujas**
+```Javascript
+let goodbye = function (name) {
+    return "goodbye" + name;
+}
+```
+
+**ilma function märkimata**
+```Javascript
+goodbye = (name) => {
+    return "goodbye" + name;
+}
+
+let farewell = goodbye("Tim");
+console.log(farewell);
+```
+
+**ilma sulgudeta saab kui on ainult üks parameeter**
+```Javascript
+goodbye = name => {
+    return "goodbye" + name;
+}
+
+let farewell = goodbye("Tim");
+console.log(farewell);
+```
+
+**kui loogika lühike**
+```Javascript
+goodbye = name => return "goodbye" + name;
+
+let farewell = goodbye("Tim");
+console.log(farewell);
+```
