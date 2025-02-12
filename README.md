@@ -152,3 +152,40 @@ goodbye = name => return "goodbye" + name;
 let farewell = goodbye("Tim");
 console.log(farewell);
 ```
+
+**objektide vahel**
+```Javascript
+let person ={
+    name: "Toomas",
+    age: 25,
+    greeting(){
+        console.log(this) //this viitab objektile endale, this.name, this.age
+        return "hello";
+    },
+    goodbye: () => {
+        console.log(this) // viitab brauserile
+        return "goodbye";
+    }
+
+}
+
+console.log(person.greeting())
+console.log(person.goodbye())
+```
+
+**rekursiivse funktsioonid**
+```Javascript
+function recursive(i){
+    console.log(i);
+    if(i<10){
+    recursive(i+i);
+    }
+}
+
+recursive(0);
+
+// alternatiiv
+for(i = 0, i++, i < 10){
+    
+}
+```
