@@ -15,6 +15,11 @@ let template = ` Hello
  !!!`;
 ```
 
+**Nubrite paremaks arusaamiseks võib vahele panne _**
+```Javascript
+let x= 100_000_000_000;
+```
+
 Muutujate puhul kasutada let mitte var(var on vana, let uus)
 ``` Javascript
 let y = 10
