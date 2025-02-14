@@ -110,9 +110,21 @@ function c(){
 a();
 ```
 
-**Array**
+**Array, võib sisestatud erinevat tüüpe väärtusid, lihtsamask vaatamiseks võib panna kõik väärtused eri reale, aga võib olla ka kõik ühes reas**
 ```Javascript
-const listing = ['Esimene', 'Teine', 'Kolmas'];
+const listing = [
+    'Esimene', 
+    2, 
+    true, 
+    () => 'hello', 
+    {cat: 'Susi'}, 
+    [1, 2, 'hello']
+    ];
+
+console.log(list);
+console.log(list[0]);
+console.log(list[4].cat);
+console.log(list[5][1]);
 ```
 
 **Objects**
@@ -208,4 +220,17 @@ recursive(0);
 for(i = 0, i++, i < 10){
     console.log(i);
 }
+```
+
+**Math matemaatilised tehted**
+```Javascript
+Math.Pi; // Annab PI
+Math.sqrt(2); // Ruutjuur 2
+Math.round(3.4); //3, ümardab lähima täisarvuni
+Math.random(); // annab suvalise arvu 0 ja 1 vahel
+Math.random() * 100; // 0 ja 100 vahel
+(Math.random() * 100) + 100; // 100 ja 200 vahel
+Math.ceil(4.2); // 5, ümardab ümardab ülesse lähima täis arvuni
+Math.floor(4.9); // 4, ümardab alla lähima täis arvuni
+Math.trunc(3.7); // 3, tagastab täisarvu
 ```
