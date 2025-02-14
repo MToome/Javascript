@@ -271,28 +271,26 @@ if(day==0){
 }
 console.log(answer);
 
-// Lihtsamalt saaks
+// Lihtsamalt saaks, switch case on tähtis break
 switch(day){
-    case 0:
+    case 0:                     // Kas päev 0
         answer = 'Pühapäev';
         break;
-    case 1:
+    case 1:                     // Kas päev 0
         answer = 'Esmaspäev';
         break;
-    case 2:
+    case 2:                     // Kas päev 0
         answer = 'Teisipäev';
         break;
-    case 3:
+    case 3:                     // Kas päev 0
         answer = 'Kolmapäev';
         break;
-    case 4:
+    case 4:                     // Kas päev 0
         answer = 'Neljapäev';
         break;
-    case 5:
-        answer = 'Reede';
-        break;
+    case 5:                     // Kui päev kas 5 või 6 päev on pidupäev
     case 6:
-        answer = 'Laupäev';
+        answer = 'pidupäev';
         break;
     default:
         answer = 'Imelik';
