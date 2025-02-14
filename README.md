@@ -15,6 +15,17 @@ let template = ` Hello
  !!!`;
 ```
 
+**Loogika operaatorid**
+&& and
+|| or
+! not
+
+**Võrdlus operaatorid**
+== võrdub
+=== võrdne väärtus ja võrdne tüüpe
+!= ei ole võrdne
+!== ei ole võrdne väärtus või tüüp
+
 **Nubrite paremaks arusaamiseks võib vahele panne _**
 ```Javascript
 let x= 100_000_000_000;
@@ -233,4 +244,57 @@ Math.random() * 100; // 0 ja 100 vahel
 Math.ceil(4.2); // 5, ümardab ümardab ülesse lähima täis arvuni
 Math.floor(4.9); // 4, ümardab alla lähima täis arvuni
 Math.trunc(3.7); // 3, tagastab täisarvu
+```
+
+**If else**
+```Javascript
+let day = new Date().getDay(); // pühapäev on 0 ja laupäev 6
+console.log(day)
+
+let answer = '';
+if(day==0){
+    answer = 'Pühapäev';
+} else if(day==1){
+    answer = 'ESmaspäev';    
+} else if(day==2){
+    answer = 'Teisipäev';  
+} else if(day==3){
+    answer = 'Kolmapäev';  
+} else if(day==4){
+    answer = 'Neljapäev';  
+} else if(day==5){
+    answer = 'Reede';  
+} else if(day==6){
+    answer = 'Laupäev';  
+} else {
+    answer = 'Imelik';
+}
+console.log(answer);
+
+// Lihtsamalt saaks
+switch(day){
+    case 0:
+        answer = 'Pühapäev';
+        break;
+    case 1:
+        answer = 'Esmaspäev';
+        break;
+    case 2:
+        answer = 'Teisipäev';
+        break;
+    case 3:
+        answer = 'Kolmapäev';
+        break;
+    case 4:
+        answer = 'Neljapäev';
+        break;
+    case 5:
+        answer = 'Reede';
+        break;
+    case 6:
+        answer = 'Laupäev';
+        break;
+    default:
+        answer = 'Imelik';
+}
 ```
