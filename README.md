@@ -7,7 +7,7 @@ let vastus1= ' Tere tulemast koju "Madis"';
 let vastus2 = " He is called 'John'";
 
 let boo = 'hi';
-// Kasutaded kald juttumärke saab teha keerulisemaid asju
+// Kasutades kald juttumärke saab teha keerulisemaid asju
 let template = ` Hello
  world
  ${vastus1}
@@ -31,45 +31,44 @@ let template = ` Hello
 let x= 100_000_000_000;
 ```
 
-Muutujate puhul kasutada let mitte var(var on vana, let uus)
+**Muutujate puhul kasutada let mitte var(var on vana, let uus)**
 ``` Javascript
 let y = 10
 ```
-Püsiva muutuja puhul const
-
+**Püsiva muutuja puhul const**
 ```Javascript
 const x = 1
 ```
 
-Console võimaldab ligipääsu browseri debuggingule 
-Kõige tavalisemad käsklused:
+**Console võimaldab ligipääsu browseri debuggingule**
+**Kõige tavalisemad käsklused:**
 
-Ekraanile printimiseks kasut console.log
+**Ekraanile printimiseks kasut console.log**
 ``` Javascript
 console.log('Hello');
 ```
 
-Ekraanile errori teate näitamine
+**Ekraanile errori teate näitamine**
 ```Javascript
 console.error('See on errori teade');
 ```
 
-Ekraanile hoiatuse kuvamine
+**Ekraanile hoiatuse kuvamine**
 ```Javascript
 console.warn('See on hoiatus');
 ```
 
-Kuvad info teada, võimalik kujundada selle välimust
+**Kuvad info teada, võimalik kujundada selle välimust**
 ```Javascript
 console.info('%c see on muudetud kujundusega info kiri", "color:green; font-size: 15px; font-weight:bold:');
 ```
 
-Struktureeritud tabli formaadis andmete esitamiseks. Võtab sisestatud andmete omadused või elemendid ja paneb need ridadesse ja tulpadesse.
+**Struktureeritud tabli formaadis andmete esitamiseks. Võtab sisestatud andmete omadused või elemendid ja paneb need ridadesse ja tulpadesse**
 ```Javascript
 console.table([{nimi: 'Tom', vanus: 25, sugu: 'M'}, {nimi: 'Mari', vanus: 27, sugu: 'N'}]);
 ```
 
-Ajamõõtmiseks
+**Ajamõõtmiseks**
 ```Javascript
 console.time('Ajamõõtmine');
 function loops()
@@ -83,12 +82,12 @@ loops();
 console.timeEnd('Ajamõõtmine');
 ```
 
-Annab ette viga teate kui teatud tingimus on vale, aitab leida vigu arendamise käigus. Kui tingimus on tõene siis ei tule ühtegi teadet.
+**Annab ette viga teate kui teatud tingimus on vale, aitab leida vigu arendamise käigus. Kui tingimus on tõene siis ei tule ühtegi teadet**
 ```Javascript
 console.assert(5>10, 'See väide ei õnnestunud');
 ```
 
-Console käskude grupeerimiseks console.group() alustamiseks ja groupEnd() gruppi lõpetamiseks.
+**Console käskude grupeerimiseks console.group() alustamiseks ja groupEnd() gruppi lõpetamiseks**
 ```Javascript
 console.group('Kasutaja info');
 console.log('Nimi: Mati');
@@ -96,7 +95,7 @@ console.log('Sugu:M');
 console.groupEnd();
 ```
 
-Loendamiseks mitu korda käsklust on kutsutud
+**Loendamiseks mitu korda käsklust on kutsutud**
 ```Javascript
 console.count('Loenda');
 console.count('Loenda');
@@ -107,7 +106,7 @@ Loenda: 1
 Loenda: 2
 ```
 
-Koodi teekonna nägemiseks
+**Koodi teekonna nägemiseks**
 ```Javascript
 function a(){
     b();
@@ -138,20 +137,61 @@ console.log(list[4].cat);
 console.log(list[5][1]);
 ```
 
-**Objects**
+## Objects
 ```Javascript
 const inimene = {eesnimi: 'Tom', perekonnanimi:'Tiik', vanus:25};
 ```
 
-**Muutuja tüübi saamiseks**
+## Muutuja tüübi saamiseks
 ```Javascript
 typeof 'Lukk'  // string
 typeof 0       // number
 typeof 2.15    // number
 ```
 
-**Funktsioonid**
-**Klassikaline**
+## Loops
+**while(true)**
+```Javascript
+let startSec = new Date().getSeconds();
+let currentSec = new Date().getSeconds();
+let count =0
+while(currentSec == startSec){ // teeb niikaua kuni on tõene
+    currentSec = new Date().getSeconds();
+    console.log(count);
+    count++;
+}
+```
+
+**do while**
+```Javascript
+let a=1;
+
+while(a<1){ // tingimust kontrollitakse alguses
+    console.log('did stuff');
+}
+
+do {
+    console.log('did stuff');
+} while(a<1); // tingimust kontrollitakse lõpus, vähemalt ühe korra jookseb
+
+let arra= ['Tom',1 , 'Hom'];
+
+for(let value in arra){
+    console.log(value);
+}
+
+for(let i=0; i<10; i++){
+    if(i==3){
+        continue; // hüppab algusesse tagasi
+    }
+    if(i==7){
+        break; // lõpetab loopi
+    }
+    console.log(i);
+}
+```
+# Funktsioonid
+## Klassikaline
 ```Javascript
 function hello(name){
     return 'Hello' + name;
@@ -161,14 +201,14 @@ let greeting = hello('Kevin');
 console.log(greeting)
 ```
 
-**Muutujas**
+## Muutujas
 ```Javascript
 let goodbye = function (name) {
     return 'goodbye' + name;
 }
 ```
 
-**ilma function märkimata**
+## Ilma function märkimata
 ```Javascript
 goodbye = (name) => {
     return 'goodbye' + name;
@@ -178,7 +218,7 @@ let farewell = goodbye('Tim');
 console.log(farewell);
 ```
 
-**ilma sulgudeta saab kui on ainult üks parameeter**
+## Ilma sulgudeta saab kui on ainult üks parameeter
 ```Javascript
 goodbye = name => {
     return 'goodbye' + name;
@@ -188,7 +228,7 @@ let farewell = goodbye('Tim');
 console.log(farewell);
 ```
 
-**kui loogika lühike**
+## Kui loogika lühike
 ```Javascript
 goodbye = name => return 'goodbye' + name;
 
@@ -196,7 +236,7 @@ let farewell = goodbye('Tim');
 console.log(farewell);
 ```
 
-**objektide vahel**
+## Objektide vahel
 ```Javascript
 let person ={
     name: 'Toomas',
@@ -216,7 +256,7 @@ console.log(person.greeting())
 console.log(person.goodbye())
 ```
 
-**rekursiivse funktsioonid**
+## Rekursiivse funktsioonid
 ```Javascript
 function recursive(i){
     console.log(i);
@@ -233,7 +273,7 @@ for(i = 0, i++, i < 10){
 }
 ```
 
-**Math matemaatilised tehted**
+# Math matemaatilised tehted
 ```Javascript
 Math.Pi; // Annab PI
 Math.sqrt(2); // Ruutjuur 2
@@ -246,7 +286,7 @@ Math.floor(4.9); // 4, ümardab alla lähima täis arvuni
 Math.trunc(3.7); // 3, tagastab täisarvu
 ```
 
-**If else**
+# If else
 ```Javascript
 let day = new Date().getDay(); // pühapäev on 0 ja laupäev 6
 console.log(day)
