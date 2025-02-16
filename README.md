@@ -16,15 +16,19 @@ let template = ` Hello
 ```
 
 **Loogika operaatorid**
+```
 && and
 || or
 ! not
+```
 
 **Võrdlus operaatorid**
+```
 == võrdub
 === võrdne väärtus ja võrdne tüüpe
 != ei ole võrdne
 !== ei ole võrdne väärtus või tüüp
+```
 
 **Nubrite paremaks arusaamiseks võib vahele panne _**
 ```Javascript
@@ -60,7 +64,7 @@ console.warn('See on hoiatus');
 
 **Kuvad info teada, võimalik kujundada selle välimust**
 ```Javascript
-console.info('%c see on muudetud kujundusega info kiri", "color:green; font-size: 15px; font-weight:bold:');
+console.info(`%c see on muudetud kujundusega info kiri`, 'color:green; font-size: 15px; font-weight:bold:');
 ```
 
 **Struktureeritud tabli formaadis andmete esitamiseks. Võtab sisestatud andmete omadused või elemendid ja paneb need ridadesse ja tulpadesse**
@@ -73,7 +77,7 @@ console.table([{nimi: 'Tom', vanus: 25, sugu: 'M'}, {nimi: 'Mari', vanus: 27, su
 console.time('Ajamõõtmine');
 function loops()
 {
-    for (let i = 0; 1 <= 10000; i++)
+    for (let i = 0; i <= 10000; i++)
     {
 
     }
@@ -122,7 +126,7 @@ a();
 
 **Array, võib sisestatud erinevat tüüpe väärtusid, lihtsamask vaatamiseks võib panna kõik väärtused eri reale, aga võib olla ka kõik ühes reas**
 ```Javascript
-const listing = [
+const list= [
     'Esimene', 
     2, 
     true, 
@@ -176,8 +180,8 @@ do {
 
 let arra= ['Tom',1 , 'Hom'];
 
-for(let value in arra){
-    console.log(value);
+for(value in arra){
+    console.log(arra[value]);
 }
 
 for(let i=0; i<10; i++){
@@ -194,7 +198,7 @@ for(let i=0; i<10; i++){
 ## Klassikaline
 ```Javascript
 function hello(name){
-    return 'Hello' + name;
+    return 'Hello ' + name;
 }
 
 let greeting = hello('Kevin');
@@ -204,14 +208,14 @@ console.log(greeting)
 ## Muutujas
 ```Javascript
 let goodbye = function (name) {
-    return 'goodbye' + name;
+    return 'goodbye ' + name;
 }
 ```
 
 ## Ilma function märkimata
 ```Javascript
 goodbye = (name) => {
-    return 'goodbye' + name;
+    return 'goodbye ' + name;
 }
 
 let farewell = goodbye('Tim');
@@ -221,7 +225,7 @@ console.log(farewell);
 ## Ilma sulgudeta saab kui on ainult üks parameeter
 ```Javascript
 goodbye = name => {
-    return 'goodbye' + name;
+    return 'goodbye ' + name;
 }
 
 let farewell = goodbye('Tim');
@@ -230,7 +234,7 @@ console.log(farewell);
 
 ## Kui loogika lühike
 ```Javascript
-goodbye = name => return 'goodbye' + name;
+goodbye = name => 'goodbye ' + name;
 
 let farewell = goodbye('Tim');
 console.log(farewell);
@@ -242,14 +246,13 @@ let person ={
     name: 'Toomas',
     age: 25,
     greeting(){
-        console.log(this) //this viitab objektile endale, this.name, this.age
-        return 'hello';
+        console.log(this); //this viitab objektile endale, this.name, this.age
+        return 'hello '+ this.name; 
     },
     goodbye: () => {
         console.log(this) // viitab brauserile
         return 'goodbye';
     }
-
 }
 
 console.log(person.greeting())
@@ -261,21 +264,21 @@ console.log(person.goodbye())
 function recursive(i){
     console.log(i);
     if(i<10){
-    recursive(i+i);
+    recursive(i+1);
     }
 }
 
 recursive(0);
 
 // alternatiiv
-for(i = 0, i++, i < 10){
+for (let i = 0; i < 10; i++) {
     console.log(i);
 }
 ```
 
 # Math matemaatilised tehted
 ```Javascript
-Math.Pi; // Annab PI
+Math.PI; // Annab PI
 Math.sqrt(2); // Ruutjuur 2
 Math.round(3.4); //3, ümardab lähima täisarvuni
 Math.random(); // annab suvalise arvu 0 ja 1 vahel
@@ -336,3 +339,15 @@ switch(day){
         answer = 'Imelik';
 }
 ```
+
+# Interpolation
+
+**Automaatselt muutujate asendamine nende väärtustega on string Interpolation**
+Selleks vaja kasutada kald juttumärke `...` ja panna muutuja nimi ${...} sisse
+```Javascript
+let firstName = 'Tom';
+let lastName = 'Tomson';
+
+let helloString = `Welcome ${firstName}, ${lastName}!`;
+```
+
