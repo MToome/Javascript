@@ -22,12 +22,34 @@ let template = ` Hello
 ! not
 ```
 
+**'!' boolean väärtuse muutmine**
+```Javascript
+let late = true;
+let oposite = !late;
+
+console.log(oposite) // Output: false
+```
+
 **Võrdlus operaatorid**
 ```
 == võrdub
 === võrdne väärtus ja võrdne tüüpe
 != ei ole võrdne
 !== ei ole võrdne väärtus või tüüp
+```
+
+```Javascript
+console.log(1 != '1'); // Output: false
+console.log(1 !== '1'); // Output: true
+```
+
+**Ternary Operator**
+'===' lubab kui olukorda peale '?' märki kui see sünteks on kompaktne
+```Javascript
+let price = 10.5;
+let day = "Monday";
+
+day === "Monday" ? price -= 1.5 : price += 1.5; // kui päev on monday siis rakendub esimene väljend, kui ei ole siis teine
 ```
 
 **Nubrite paremaks arusaamiseks võib vahele panne _**
@@ -124,9 +146,21 @@ function c(){
 a();
 ```
 
-**Array, võib sisestatud erinevat tüüpe väärtusid, lihtsamask vaatamiseks võib panna kõik väärtused eri reale, aga võib olla ka kõik ühes reas**
+## Interpolation
+
+**Automaatselt muutujate asendamine nende väärtustega on string Interpolation**
+Selleks vaja kasutada kald juttumärke `...` ja panna muutuja nimi ${...} sisse
 ```Javascript
-const list= [
+let firstName = 'Tom';
+let lastName = 'Tomson';
+
+let helloString = `Welcome ${firstName}, ${lastName}!`;
+```
+
+**Array, võib sisestatud erinevat tüüpe väärtusid, lihtsamask vaatamiseks võib panna kõik väärtused eri reale, aga võib olla ka kõik ühes reas,** 
+**on võimalik hiljem muuta(mutable)**
+```Javascript
+const listOne= [
     'Esimene', 
     2, 
     true, 
@@ -135,10 +169,50 @@ const list= [
     [1, 2, 'hello']
     ];
 
-console.log(list);
-console.log(list[0]);
-console.log(list[4].cat);
-console.log(list[5][1]);
+console.log(listOne);
+console.log(listOne[0]);
+console.log(listOne[4].cat);
+console.log(listOne[5][1]);
+
+listOne.push('T', 5); // .push saab array lõppu panna ühe või mitu elementi
+listOne.pop(); // .pop võtab array lõpust elemendi ja tagastab selle
+console.log(listOne.length); // Output: 7, tagastab array elementide arvu, loendamine algab nullist
+```
+
+**.reduce() käib listi läbi ja tagastab ühe väärtuse**
+```Javascript
+const arrayOfNumbers = [1, 2, 3, 4];
+
+const sum = arrayOfNumbers.reduce((accumulator, currentValue) => {  // accumulator on eelmise iteratsiooni väärtus ja currentValue praegune mis juurde pannakse
+  return accumulator + currentValue;
+});
+console.log(sum); // Output: 10, 1+2+3+4
+```
+
+**.forEach() iga listi elemendi kohta teeb midagi**
+```Javascript
+const listTwo = [34, 'Tom', 5, 'Mari'];
+
+listTwo.forEach(item => {
+    console.log(item);      // Kõik elemendid listis kuvatakse ükshaaval
+})
+```
+
+**.filter() filtreerib listi vastavalt ette antud tingimusele ja koostab uue listi elementidest mis tingimuses olid true**
+```Javascript
+const numbers = [1, 2, 42 , 43, 64];
+const filteredNumbers = numbers.filter(i => {
+    return i % 2 == 0                           // 2, 42, 64
+})
+```
+
+**.map() kutsub iga elementi tagasi listis**
+```JavaScript
+const listTree = ['Mark', 'Tiina', 'Matias'];
+
+const hiListTree = listTree.map(name => {
+    return 'hi ' + name;    // lisab iga nime juurde hi ja teeb sellest uue nimekirja
+})
 ```
 
 ## Objects
@@ -163,6 +237,15 @@ while(currentSec == startSec){ // teeb niikaua kuni on tõene
     currentSec = new Date().getSeconds();
     console.log(count);
     count++;
+}
+```
+
+**Nested for loops**
+```Javascript
+for (let outer = 0; outer < 2; outer += 1) {   // loeb ühe korra selle
+  for (let inner = 0; inner < 3; inner += 1) { // siis teeb selle täielikult ära, teeb jälle ühe korra ülemise ja tule siia tagasi
+    console.log(`${outer}-${inner}`);
+  }
 }
 ```
 
@@ -194,8 +277,12 @@ for(let i=0; i<10; i++){
     console.log(i);
 }
 ```
-# Funktsioonid
-## Klassikaline
+## Funktsioonid
+**Javascriptis on funktsioonid objektid ja seetõttu saab neid argumentidena sisestada**
+**Javascripti enda funktsioonid on esmaklaasilised objektid, neil on sisseehitatud omadused ja meetodid, omadusi ja meetodeid saab neile lisada,**
+**neid saab lisada argumentidena ja tagastada teistest funktsioonidest, neid saab määrata muutujatesse, listi elementidesse ja teistesse objektidesse** 
+
+### Klassikaline
 ```Javascript
 function hello(name){
     return 'Hello ' + name;
@@ -205,14 +292,28 @@ let greeting = hello('Kevin');
 console.log(greeting)
 ```
 
-## Muutujas
+### Anonüümne funktsioon
+```Javascript
+// Nimega funktsioon
+function hello() {
+  return 'Hi';
+}
+
+// Anonüümne funktsioon
+const hello = function() {
+  return 'hi';
+}
+```
+
+### Muutujas
+Võivad olla anonüümsed
 ```Javascript
 let goodbye = function (name) {
     return 'goodbye ' + name;
 }
 ```
 
-## Ilma function märkimata
+### Ilma function märkimata, arrow function =>
 ```Javascript
 goodbye = (name) => {
     return 'goodbye ' + name;
@@ -222,7 +323,7 @@ let farewell = goodbye('Tim');
 console.log(farewell);
 ```
 
-## Ilma sulgudeta saab kui on ainult üks parameeter
+### Ilma sulgudeta saab kui on ainult üks parameeter
 ```Javascript
 goodbye = name => {
     return 'goodbye ' + name;
@@ -232,7 +333,7 @@ let farewell = goodbye('Tim');
 console.log(farewell);
 ```
 
-## Kui loogika lühike
+### Kui loogika lühike
 ```Javascript
 goodbye = name => 'goodbye ' + name;
 
@@ -240,7 +341,7 @@ let farewell = goodbye('Tim');
 console.log(farewell);
 ```
 
-## Objektide vahel
+### Objektide vahel
 ```Javascript
 let person ={
     name: 'Toomas',
@@ -259,7 +360,7 @@ console.log(person.greeting())
 console.log(person.goodbye())
 ```
 
-## Rekursiivse funktsioonid
+### Rekursiivse funktsioonid
 ```Javascript
 function recursive(i){
     console.log(i);
@@ -276,7 +377,7 @@ for (let i = 0; i < 10; i++) {
 }
 ```
 
-# Math matemaatilised tehted
+## Math matemaatilised tehted
 ```Javascript
 Math.PI; // Annab PI
 Math.sqrt(2); // Ruutjuur 2
@@ -289,7 +390,7 @@ Math.floor(4.9); // 4, ümardab alla lähima täis arvuni
 Math.trunc(3.7); // 3, tagastab täisarvu
 ```
 
-# If else
+## If else
 ```Javascript
 let day = new Date().getDay(); // pühapäev on 0 ja laupäev 6
 console.log(day)
@@ -331,7 +432,7 @@ switch(day){
     case 4:                     // Kas päev 0
         answer = 'Neljapäev';
         break;
-    case 5:                     // Kui päev kas 5 või 6 päev on pidupäev
+    case 5:                     // Kui päev kas 5 või 6 on pidupäev
     case 6:
         answer = 'pidupäev';
         break;
@@ -339,15 +440,3 @@ switch(day){
         answer = 'Imelik';
 }
 ```
-
-# Interpolation
-
-**Automaatselt muutujate asendamine nende väärtustega on string Interpolation**
-Selleks vaja kasutada kald juttumärke `...` ja panna muutuja nimi ${...} sisse
-```Javascript
-let firstName = 'Tom';
-let lastName = 'Tomson';
-
-let helloString = `Welcome ${firstName}, ${lastName}!`;
-```
-
