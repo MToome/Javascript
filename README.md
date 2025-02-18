@@ -15,6 +15,8 @@ let template = ` Hello
  !!!`;
 ```
 
+**Kasutades '_' omaduse nime alguses annab märku teistele arendajatele märku, et ei muudaks seda omadust ei muudaks**
+
 **Loogika operaatorid**
 ```
 && and
@@ -220,6 +222,48 @@ const hiListTree = listTree.map(name => {
 const inimene = {eesnimi: 'Tom', perekonnanimi:'Tiik', vanus:25};
 ```
 
+### Shorthand property name syntax for object creation
+```JavaScript
+const activity = 'Running';
+const forest = { activity };
+console.log(forest); // { activity: 'Running' }
+```
+
+### Destructuring assignment shorthand syntex
+**Lubab objekti omadusi täpseteks muutuja väärtusteks**
+```Javascript
+const rubiksCubeFacts = {
+  possiblePermutations: '43,252,003,274,489,856,000',
+  invented: '1974',
+  largestCube: '17x17x17'
+};
+const {possiblePermutations, invented, largestCube} = rubiksCubeFacts;
+console.log(possiblePermutations); // '43,252,003,274,489,856,000'
+console.log(invented); // '1974'
+console.log(largestCube); // '17x17x17'
+```
+
+### Getters and setters
+võimaldavad lisa tegevusi teha muudatustega
+Võimalik tagastama teistsugust väärtust kasutades tingimusi
+**Getters võtavad ja tagastavad objekti sisesed omadused, aga on võimelised enamaks**
+```JavaScript
+const myCat = {
+  _name: 'Snickers',
+  get name(){
+    return this._name
+  },
+  set name(newName){
+    //Verify that newName is a non-empty string before setting as name property
+    if (typeof newName === 'string' && newName.length > 0){
+      this._name = newName; 
+    } else {
+      console.log("ERROR: name must be a non-empty string"); 
+    }
+  }
+}
+```
+
 ## Muutuja tüübi saamiseks
 ```Javascript
 typeof 'Lukk'  // string
@@ -283,6 +327,7 @@ for(let i=0; i<10; i++){
 **neid saab lisada argumentidena ja tagastada teistest funktsioonidest, neid saab määrata muutujatesse, listi elementidesse ja teistesse objektidesse** 
 
 ### Klassikaline
+**Factory function kui funktsioon tagastab objekti
 ```Javascript
 function hello(name){
     return 'Hello ' + name;
