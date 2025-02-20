@@ -244,24 +244,46 @@ console.log(largestCube); // '17x17x17'
 ```
 
 ### Getters and setters
-võimaldavad lisa tegevusi teha muudatustega
-Võimalik tagastama teistsugust väärtust kasutades tingimusi
+**Võimaldavad lisa tegevusi teha muutujatega**
+**Võimalik tagastama teistsugust väärtust kasutades tingimusi**
+**Saab kasutada *.this* ,et objekti siseseid omadusi kutsuda**
 **Getters võtavad ja tagastavad objekti sisesed omadused, aga on võimelised enamaks**
 ```JavaScript
-const myCat = {
-  _name: 'Snickers',
-  get name(){
-    return this._name
-  },
-  set name(newName){
-    //Verify that newName is a non-empty string before setting as name property
-    if (typeof newName === 'string' && newName.length > 0){
-      this._name = newName; 
+const person = {
+  _firstName: 'John',
+  _lastName: 'Doe',
+  get fullName() {
+    if (this._firstName && this._lastName){
+      return `${this._firstName} ${this._lastName}`;
     } else {
-      console.log("ERROR: name must be a non-empty string"); 
+      return 'Missing a first name or a last name.';
     }
   }
 }
+
+// To call the getter method: 
+person.fullName; // 'John Doe'
+```
+
+**Setters taas määravad omadused objektis**
+```JavaScript
+const person = {
+  _age: 37,
+  set age(newAge){
+    if (typeof newAge === 'number'){
+      this._age = newAge;
+    } else {
+      console.log('You must assign a number to age');
+    }
+  }
+};
+person.age = 40;
+console.log(person._age); // Logs: 40
+person.age = '40'; // Logs: You must assign a number to age
+
+// Vanust saab otse ikkagi määrata
+person._age = 'forty-five'
+console.log(person._age); // Prints forty-five
 ```
 
 ## Muutuja tüübi saamiseks
@@ -327,7 +349,6 @@ for(let i=0; i<10; i++){
 **neid saab lisada argumentidena ja tagastada teistest funktsioonidest, neid saab määrata muutujatesse, listi elementidesse ja teistesse objektidesse** 
 
 ### Klassikaline
-**Factory function kui funktsioon tagastab objekti
 ```Javascript
 function hello(name){
     return 'Hello ' + name;
@@ -366,6 +387,21 @@ goodbye = (name) => {
 
 let farewell = goodbye('Tim');
 console.log(farewell);
+```
+
+### Tehasefunktsioon on funktsioon, mis tagastab objekti ja mida saab uuesti kasutada mitme objekti eksemplari loomiseks.
+```JavaScript
+const monsterFactory = (name, age, energySource, catchPhrase) => {
+  return { 
+    name: name,
+    age: age, 
+    energySource: energySource,
+    scare() {
+      console.log(catchPhrase);
+    } 
+  }
+};
+
 ```
 
 ### Ilma sulgudeta saab kui on ainult üks parameeter
