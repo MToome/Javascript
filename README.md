@@ -286,6 +286,48 @@ person._age = 'forty-five'
 console.log(person._age); // Prints forty-five
 ```
 
+### Built-in object Methods
+**Järgnevalt lingilt on võimalik nende kohta rohkem õppida**
+[MDN's object instance documentation](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Object#Methods)
+**On olemas mitmeid sisse ehitatud objektide meetodeid**
+```JavaScript
+const robot = {
+	model: 'SAL-1000',
+  mobile: true,
+  sentient: false,
+  armor: 'Steel-plated',
+  energyLevel: 75
+};
+
+const robotKeys = Object.keys(robot);
+console.log(robotKeys); 
+// output: [ 'model', 'mobile', 'sentient', 'armor', 'energyLevel' ]
+
+const robotEntries = Object.entries(robot);
+console.log(robotEntries); 
+/* output:
+[ [ 'model', 'SAL-1000' ],
+  [ 'mobile', true ],
+  [ 'sentient', false ],
+  [ 'armor', 'Steel-plated' ],
+  [ 'energyLevel', 75 ] ]
+*/
+
+// Declare newRobot below this line:
+const newRobot = Object.assign({}, robot, {laserBlaster: true, voiceRecognition: true}) // {} see näitab, et ei muudeta mingit objekti
+console.log(newRobot);
+
+/* output:
+{ model: 'SAL-1000',
+  mobile: true,
+  sentient: false,
+  armor: 'Steel-plated',
+  energyLevel: 75,
+  laserBlaster: true,
+  voiceRecognition: true }
+*/
+```
+
 ## Muutuja tüübi saamiseks
 ```Javascript
 typeof 'Lukk'  // string
