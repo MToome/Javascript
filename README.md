@@ -401,8 +401,35 @@ const monsterFactory = (name, age, energySource, catchPhrase) => {
     } 
   }
 };
-
 ```
+
+### Destructuring techinque - property value shorthand
+**Sama nimega võti ja väärtus ilma seda välja trükkimata**
+Ülemine näide lihtsamalt.
+```JavaScript
+const monsterFactory = (name, age, energySource, catchPhrase) => {
+  return { 
+    name,
+    age, 
+    energySource,
+    scare() {
+      console.log(catchPhrase);
+    } 
+  }
+};
+```
+
+### Destructured assignment
+**Loome muutuja objekti võtmega mis on looklevate sulgude vahel {} ja määrama sellele objekti**
+```Javascript
+const residence = vampire.residence; 
+console.log(residence); // Prints 'Transylvania' 
+
+// Destructured assignment
+const { residence } = vampire; 
+console.log(residence); // Prints 'Transylvania'
+```
+
 
 ### Ilma sulgudeta saab kui on ainult üks parameeter
 ```Javascript
