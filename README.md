@@ -593,7 +593,7 @@ switch(day){
 
 # Lisad
 ## Javascript compiler
-[Babel](babeljs.io)
+[Babel](https://babeljs.io/)
 
 ## Nunjucks
 Javascripti šabloonimis keel
