@@ -590,3 +590,27 @@ switch(day){
         answer = 'Imelik';
 }
 ```
+
+# Lisad
+## Javascript compiler
+[Babel](babeljs.io)
+
+## Nunjucks
+Javascripti šabloonimis keel
+
+## TypeScript 
+typescript on javascript tüüpide sünteksiga
+[TypeScript](typescriptlang.org)
+
+## Haxe 4 
+Tõlgib erinevatese keeltesse
+[Haxe](haxe.org)
+
+## Webassembly
+Saab tõlgendada programeerimis keel veebi tarbeks
+[Webassambly](webassamnly.org)
+
+## Css 
+Sass(algaja sõbralik)
+Sass on paljude võimalustega ja lihtsam kirjutamis keel kui css, saab tõlkida ümber css`i
+[Sass](sass-lang.com)
