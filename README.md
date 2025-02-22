@@ -608,7 +608,7 @@ Tõlgib erinevatese keeltesse
 
 ## Webassembly
 Saab tõlgendada programeerimis keel veebi tarbeks
-[Webassambly](https://webassamnly.org)
+[Webassambly](https://webassembly.org/)
 
 ## Css 
 Sass(algaja sõbralik)
