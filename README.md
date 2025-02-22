@@ -600,17 +600,17 @@ Javascripti šabloonimis keel
 
 ## TypeScript 
 typescript on javascript tüüpide sünteksiga
-[TypeScript](typescriptlang.org)
+[TypeScript](https://typescriptlang.org)
 
 ## Haxe 4 
 Tõlgib erinevatese keeltesse
-[Haxe](haxe.org)
+[Haxe](https://haxe.org)
 
 ## Webassembly
 Saab tõlgendada programeerimis keel veebi tarbeks
-[Webassambly](webassamnly.org)
+[Webassambly](https://webassamnly.org)
 
 ## Css 
 Sass(algaja sõbralik)
 Sass on paljude võimalustega ja lihtsam kirjutamis keel kui css, saab tõlkida ümber css`i
-[Sass](sass-lang.com)
+[Sass](https://sass-lang.com)
